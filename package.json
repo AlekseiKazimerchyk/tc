@@ -1,0 +1,12 @@
+{
+  "name": "tc",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node test-conf.js"
+  },
+  "author": "",
+  "dependencies": {
+    "protractor": "^5.3.1"
+  }
+}
