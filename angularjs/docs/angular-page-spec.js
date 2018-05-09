@@ -117,7 +117,7 @@ describe('Страница angular.io', function () {
             expect(await angularPage.getSectionSearchResults.get(0).getText()).toContain('api');
         });
 
-        it('Поиск по значению qwerty', async function () {
+        xit('Поиск по значению qwerty', async function () {
             let EC = protractor.ExpectedConditions;
             await angularPage.getFindField.clear();
             await angularPage.getFindField.sendKeys('qwerty');
