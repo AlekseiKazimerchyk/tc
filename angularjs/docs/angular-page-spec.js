@@ -60,10 +60,10 @@ describe('Страница angular.io', function () {
             expect(await classes).toContain('collapsed');
         });
 
-        it('При клике кнопки версий документации появится список версий Angular (6)', async function () {
+        it('При клике кнопки версий документации появится список версий Angular (5)', async function () {
             await angularPage.getVersionButton.click();
             let count = await angularPage.getListVersions.count();
-            expect(await count).toBe(6);
+            expect(await count).toBe(5);
         });
 
         it('При клике кнопки версий документации будет выбрана текущая версия', async function () {
