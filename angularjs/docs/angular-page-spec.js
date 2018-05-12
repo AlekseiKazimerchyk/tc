@@ -10,7 +10,7 @@ describe('Страница angular.io', function () {
 
         it('Боковая панель видима', async function () {
             let classes = await angularPage.getShell.getAttribute('class');
-            expect(await classes).toContain('sidenav-open');
+            expect(classes).toContain('sidenav-open');
         });
 
         it('При клике на меню, боковая панель скроется', async function () {
@@ -18,29 +18,29 @@ describe('Страница angular.io', function () {
             let EC = protractor.ExpectedConditions;
             await browser.wait(EC.invisibilityOf(angularPage.getSideNav));
             let classes = await angularPage.getShell.getAttribute('class');
-            expect(await classes).toContain('sidenav-closed');
+            expect(classes).toContain('sidenav-closed');
         });
 
         it('Количество разделов боковой панели равно 5', async function () {
             let count = await angularPage.getListNavItems.count();
-            expect(await count).toBe(5);
+            expect(count).toBe(5);
         });
 
         it('При клике отобразиться страница GETTING STARTED', async function () {
             await angularPage.getListNavItems.get(0).click();
-            expect(await browser.getCurrentUrl()).toEqual('https://angular.io/guide/quickstart');
+            expect(browser.getCurrentUrl()).toEqual('https://angular.io/guide/quickstart');
         });
 
         it('При клике развернётся список TUTORIAL', async function () {
             await angularPage.getListNavItems.get(1).click();
             let classes = await angularPage.getListNavItems.get(1).getAttribute('class');
-            expect(await classes).toContain('expanded');
+            expect(classes).toContain('expanded');
         });
 
         it('Количество подразделов Tutorial равно 8', async function () {
             await angularPage.getListNavItems.get(1).click();
             let count = await angularPage.getListTutorials.count();
-            expect(await count).toBe(8);
+            expect(count).toBe(8);
         });
 
         it('Подразделы Tutorial selected', async function () {
@@ -49,7 +49,7 @@ describe('Страница angular.io', function () {
             for (let [index, item] of listTutorials.entries()) {
                 await item.click();
                 let classes = await item.getAttribute('class');
-                expect(await classes).toContain('selected', 'not selected: ' + index);
+                expect(classes).toContain('selected', 'not selected: ' + index);
             }
         });
 
@@ -57,19 +57,19 @@ describe('Страница angular.io', function () {
             await angularPage.getListNavItems.get(1).click();
             await angularPage.getListNavItems.get(1).click();
             let classes = await angularPage.getListNavItems.get(1).getAttribute('class');
-            expect(await classes).toContain('collapsed');
+            expect(classes).toContain('collapsed');
         });
 
-        it('При клике кнопки версий документации появится список версий Angular (5)', async function () {
+        it('При клике кнопки версий документации появится список версий Angular (6)', async function () {
             await angularPage.getVersionButton.click();
             let count = await angularPage.getListVersions.count();
-            expect(await count).toBe(5);
+            expect(count).toBe(6);
         });
 
         it('При клике кнопки версий документации будет выбрана текущая версия', async function () {
             await angularPage.getVersionButton.click();
             let classes = await angularPage.getListVersions.get(1).getAttribute('class');
-            expect(await classes).toContain('selected');
+            expect(classes).toContain('selected');
         });
 
     });
